@@ -1,15 +1,24 @@
 extends _layouts/base
 
 include _modules/link/link
+include _modules/molecules/card/card
 
 block content
   .container
-    .yeogurt-info
-      h1 Welcome to Yeogurt!
-      p.
-        Take a look at the
-        #[+link({text: 'documentation'})(href='https://github.com/larsonjj/generator-yeogurt#yeogurt-generator---')]
-        and start mixing up something awesome.
-      p
-        img.logo(src="images/yeogurt-swirl.png", width="75px")
-  code.version v1.5.2
+    .row.yeogurt-info
+      .page-header
+        h1 Are you anonymous?
+      +card({title: "Your Browser", info: "info-browser"})
+      +card({title: "Browser Version", info: "info-browser-ver"})
+      +card({title: "Your Operating System", info: "info-OS"})
+      +card({title: "Your IP", info: "info-ip"})
+      +card({title: "Your Country", info: "info-location-country"})
+      +card({title: "Your City", info: "info-location-city"})
+      +card({title: "Your City", info: "info-location-lat"})
+      +card({title: "Your City", info: "info-location-long"})
+      
+    footer.footer 
+      .footer-disclaimer Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      .footer-disclaimer Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    

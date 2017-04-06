@@ -1,0 +1,13 @@
+mixin card(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+  - spec.__title = spec.title || '---'
+  - spec.__info = spec.info || ''
+
+  //- div(class=spec.__class)&attributes(attributes)
+  //-   p This is an example paragraph for the card module
+
+  .col-md-4.col-xs-12
+    .panel.panel-default(class=spec.__info)
+      .panel-heading #{spec.__title}
+      .info.panel-body Congrats! You're safe.

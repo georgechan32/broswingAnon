@@ -4,7 +4,8 @@
     "node": true
   },
   "globals": {
-    "DocumentFragment": true
+    "DocumentFragment": true,
+    "jQuery": true
   },
   "rules": {
     "indent": [2, 2],
@@ -24,6 +25,7 @@
     "one-var": 0,
     "space-infix-ops": 0,
     "strict": 0,
+    "sourceType": "module",
     "camelcase": [2, {"properties": "never"}]
   }
 }

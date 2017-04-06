@@ -3,7 +3,11 @@
 
 // Import Modules
 @import '../_modules/link/link';
+// SCSS
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
+// CSS
+@import 'node_modules/normalize.css/normalize';
 // Box sizing partial styles:
 // Apply a natural box layout model to all elements
 *,
@@ -13,10 +17,11 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+.container {
+  height: 100%;
+}
 .yeogurt-info {
   text-align: center;
-  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -29,10 +34,6 @@
   right: 10px;
 }
 
-.logo {
-  margin-top: 15px;
-}
-
 // Styling on warning for users on IE7 or below
 .browsehappy {
   text-align: center;
@@ -40,4 +41,20 @@
   background: #fff8e2;
   color: #000;
   padding: 0.5em 0;
+}
+
+.page-header {
+  margin: 0 0 20px;
+  padding-top: 40px;
+  color: #FFF;
+  background: #000;
+}
+
+.footer {
+  bottom: 0;
+  padding: 20px;
+  width: 100%;
+  background-color: #f5f5f5;
+  font-size: 10px;
+  color: #CCC;
 }
