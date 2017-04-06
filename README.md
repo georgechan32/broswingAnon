@@ -1,54 +1,44 @@
-# Browser Anon readme
+# Source
 
-Generated on 2017-03-03 using
-[generator-yeogurt@1.5.2](https://github.com/larsonjj/generator-yeogurt)
+This "Source" folder is where all of your files associated with this site will go
+and is considered the root ('/') of your site.
+This is also where all of your pages will be generated when using the [page subgenerator](#Subgenerator).
 
-## Description
+## Pages
 
-This is an example readme file.
-Describe your site/app here.
+Pages are the main driver for static sites and also determine your site's routes.
+All page templates (except index.{jade,nunjucks}) should be placed in a folder named by your desired route.
+For example, a contact page would most likely be loaded at the `/contact` route.
+You would acheive this by creating the following structure:
 
-## Technologies used
+```
+└── src
+    └── contact
+        └── index.{jade,nunjucks}
+```
 
-JavaScript
-- [Browserify](http://browserify.org/)
-- [Node](https://nodejs.org/)
+### Subgenerator
 
-Styles
-- [Sass](http://sass-lang.com/) via ([node-sass](https://github.com/sass/node-sass))
+You can easily create new pages using the built-in sub-generator like so:
 
-Markup
-- [Jade](http://jade-lang.com/)
+```
+yo yeogurt:page about
+```
 
-Optimization
-- [Imagemin](https://github.com/imagemin/imagemin)
-- [Uglify](https://github.com/mishoo/UglifyJS)
+This will create the structure you saw above:
 
-Server
-- [BrowserSync](http://www.browsersync.io/)
+```
+└── src
+    └── about
+        └── index.{jade,nunjucks}
+```
 
-Linting
-- [ESlint](http://eslint.org/)
+So when you boot up your site and go to `/about` you will see your new page.
 
-Automation
-- [Gulp](http://gulpjs.com)
+### Specifying a layout
 
-Code Management
-- [Editorconfig](http://editorconfig.org/)
-- [Git](https://git-scm.com/)
+You can also create a new page that extends from a different layout file than `base.{jade,nunjucks}`.
 
-
-## Automated tasks
-
-This project uses [Gulp](http://gulpjs.com) to run automated tasks for development and production builds.
-The tasks are as follows:
-
-`gulp --production`: Same as `gulp serve --production` also run `gulp test` and  not boot up production server
-
-`gulp serve`: Compiles preprocessors and boots up development server
-`gulp serve --open`: Same as `gulp serve` but will also open up site/app in your default browser
-`gulp serve --production`: Same as `gulp serve` but will run all production tasks so you can view the site/app in it's final optimized form
-
-`gulp test`: Lints all `*.js` file in the `source` folder using eslint
-
-***Adding the `--debug` option to any gulp task displays extra debugging information (ex. data being loaded into your templates)***
+```
+yo yeogurt:page about --layout=two-col
+```
