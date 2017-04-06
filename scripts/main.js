@@ -9835,12 +9835,12 @@ var Link = require('../_modules/link/link');
 
 $(function() {
 
-  
+
   check_browser_features();
   $(".info-browser-ver .info").text(get_browser().version);
   $(".info-OS .info").text(get_OS());
 
-  $.getJSON("http://freegeoip.net/json/", function(data) {
+  $.getJSON("https://freegeoip.net/json/", function(data) {
     var country_code = data.country_code;
     var country = data.country_name;
     var ip = data.ip;
