@@ -2,7 +2,6 @@ extends _layouts/base
 
 include _modules/link/link
 include _modules/molecules/card/card
-
 block content
   .container
     .row.yeogurt-info
@@ -14,8 +13,8 @@ block content
       +card({title: "Your IP", info: "info-ip"})
       +card({title: "Your Country", info: "info-location-country"})
       +card({title: "Your City", info: "info-location-city"})
-      +card({title: "Your City", info: "info-location-lat"})
-      +card({title: "Your City", info: "info-location-long"})
+      +card({title: "Your Latitude", info: "info-location-lat"})
+      +card({title: "Your Longitude", info: "info-location-long"})
       
     footer.footer 
       .footer-disclaimer All information on this page is meant to be experimental and is may not be accurate.  I built this using javascript and jquery to find what browsers can do to track user data and this is only touching the tip of the iceberg.

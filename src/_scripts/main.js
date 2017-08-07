@@ -12,27 +12,39 @@ $(function() {
   check_browser_features();
   $(".info-browser-ver .info").text(get_browser().version);
   $(".info-OS .info").text(get_OS());
+  if($(".info-browser .info").text() == "Chrome") {
+    $.getJSON("https://api.ipify.org/?format=json", function(e) {
+        $(".info-ip .info").text(e.ip);
+        $(".info-location-country").hide();
+        $(".info-location-city").hide();
 
-  $.getJSON("https://freegeoip.net/json/", function(data) {
-    var country_code = data.country_code;
-    var country = data.country_name;
-    var ip = data.ip;
-    var time_zone = data.time_zone;
-    var latitude = data.latitude;
-    var longitude = data.longitude;
 
-    $(".info-ip .info").text(ip);
-    $(".info-location-country .info").text(country);
-    $(".info-location-city .info").text(time_zone);
-    $(".info-location-lat .info").text(latitude);
-    $(".info-location-long .info").text(longitude);
+    });
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  } else {
+    $.getJSON("https://freegeoip.net/json/", function(data) {
+      var country_code = data.country_code;
+      var country = data.country_name;
+      var ip = data.ip;
+      var time_zone = data.time_zone;
+      var latitude = data.latitude;
+      var longitude = data.longitude;
 
-    console.log("Country Name: " + country);
-    console.log("IP: " + ip);
-    console.log("Time Zone: " + time_zone);
-    console.log("Latitude: " + latitude);
-    console.log("Longitude: " + longitude);
-  });
+      $(".info-ip .info").text(ip);
+      $(".info-location-country .info").text(country);
+      $(".info-location-city .info").text(time_zone);
+      $(".info-location-lat .info").text(latitude);
+      $(".info-location-long .info").text(longitude);
+
+      console.log("Country Name: " + country);
+      console.log("IP: " + ip);
+      console.log("Time Zone: " + time_zone);
+      console.log("Latitude: " + latitude);
+      console.log("Longitude: " + longitude);
+    });
+  }
 });
 
 function check_browser_features() {
@@ -64,6 +76,12 @@ function check_browser_features() {
   } else if (isEdge) {
     $(".info-browser .info").text("Microsoft Edge");
   }
+}
+
+function showPosition(position) {
+  console.log(position.coords.latitude);
+  $(".info-location-lat .info").text(position.coords.latitude);
+  $(".info-location-long .info").text(position.coords.longitude);
 }
 
 function get_browser() {
